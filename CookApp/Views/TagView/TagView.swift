@@ -83,6 +83,7 @@ struct TagView: View {
 }
 
 struct Tag: View {
+    @Environment(\.colorScheme) var colorScheme
     var ingredient: Ingredient
     var selected: Bool = false
     
@@ -97,6 +98,6 @@ struct Tag: View {
             .font(.body)
             .background(RoundedRectangle(cornerRadius: 8)
                     .fill(Color.gray.opacity(0.2)))
-            .foregroundColor(Color.white)
+            .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
     }
 }
