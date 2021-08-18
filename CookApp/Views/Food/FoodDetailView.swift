@@ -34,6 +34,7 @@ struct FoodDetailView: View {
                     if !food.ingredients.isEmpty {
                         TagView(tags: food.stringIngredients(), callback: {_ in})
                         .lineLimit(1)
+                        .padding()
                     }
                 }
                 Spacer()

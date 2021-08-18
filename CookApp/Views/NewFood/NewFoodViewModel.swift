@@ -67,7 +67,7 @@ final class NewFoodViewModel: ObservableObject {
     }
     
     func stringIngredients() -> [String] {
-        var strIngredients = [String()]
+        var strIngredients = [String]()
         for ingredient in ingredients {
             if ingredient.description != "" {
                 strIngredients.append(ingredient.description)

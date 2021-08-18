@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F23FBD1126C6CFE800E43BBE /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23FBD1026C6CFE800E43BBE /* Tag.swift */; };
+		F23FBD1126C6CFE800E43BBE /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23FBD1026C6CFE800E43BBE /* TagView.swift */; };
 		F23FBD1326C6E29A00E43BBE /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23FBD1226C6E29A00E43BBE /* CustomDialog.swift */; };
 		F2401A8A26C5CF9F0054E3C3 /* CookAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A8926C5CF9F0054E3C3 /* CookAppApp.swift */; };
 		F2401A8C26C5CF9F0054E3C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A8B26C5CF9F0054E3C3 /* ContentView.swift */; };
@@ -22,8 +22,6 @@
 		F2401AA926C5D2450054E3C3 /* FoodListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AA826C5D2450054E3C3 /* FoodListRow.swift */; };
 		F2401AAB26C5D5A50054E3C3 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AAA26C5D5A50054E3C3 /* Ingredient.swift */; };
 		F2401AAE26C5E3900054E3C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AAD26C5E3900054E3C3 /* Extensions.swift */; };
-		F2503DDE26C708950039EE5B /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2503DDD26C708950039EE5B /* CameraPicker.swift */; };
-		F2503DE026C708D00039EE5B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2503DDF26C708D00039EE5B /* Coordinator.swift */; };
 		F2FBADB226C66B1E0008C704 /* NewFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB126C66B1E0008C704 /* NewFoodView.swift */; };
 		F2FBADB426C66B2C0008C704 /* NewFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB326C66B2C0008C704 /* NewFoodViewModel.swift */; };
 		F2FBADB626C66BB50008C704 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB526C66BB50008C704 /* Alerts.swift */; };
@@ -33,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F23FBD1026C6CFE800E43BBE /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		F23FBD1026C6CFE800E43BBE /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		F23FBD1226C6E29A00E43BBE /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		F2401A8626C5CF9F0054E3C3 /* CookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2401A8926C5CF9F0054E3C3 /* CookAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookAppApp.swift; sourceTree = "<group>"; };
@@ -50,8 +48,6 @@
 		F2401AA826C5D2450054E3C3 /* FoodListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListRow.swift; sourceTree = "<group>"; };
 		F2401AAA26C5D5A50054E3C3 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		F2401AAD26C5E3900054E3C3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../../../Extensions.swift; sourceTree = "<group>"; };
-		F2503DDD26C708950039EE5B /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
-		F2503DDF26C708D00039EE5B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F2FBADB126C66B1E0008C704 /* NewFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodView.swift; sourceTree = "<group>"; };
 		F2FBADB326C66B2C0008C704 /* NewFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodViewModel.swift; sourceTree = "<group>"; };
 		F2FBADB526C66BB50008C704 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -71,12 +67,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F23FBD0D26C6CFB700E43BBE /* Tag */ = {
+		F23FBD0D26C6CFB700E43BBE /* TagView */ = {
 			isa = PBXGroup;
 			children = (
-				F23FBD1026C6CFE800E43BBE /* Tag.swift */,
+				F23FBD1026C6CFE800E43BBE /* TagView.swift */,
 			);
-			path = Tag;
+			path = TagView;
 			sourceTree = "<group>";
 		};
 		F2401A7D26C5CF9F0054E3C3 = {
@@ -102,9 +98,9 @@
 				F2401A9926C5CFC70054E3C3 /* Views */,
 				F2401A8926C5CF9F0054E3C3 /* CookAppApp.swift */,
 				F2401A8B26C5CF9F0054E3C3 /* ContentView.swift */,
-				F2401AAC26C5E3820054E3C3 /* Utils */,
 				F2401A8D26C5CFA00054E3C3 /* Assets.xcassets */,
 				F2401A9226C5CFA00054E3C3 /* Info.plist */,
+				F2401AAC26C5E3820054E3C3 /* Utils */,
 				F2401A8F26C5CFA00054E3C3 /* Preview Content */,
 			);
 			path = CookApp;
@@ -131,7 +127,7 @@
 		F2401A9926C5CFC70054E3C3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F23FBD0D26C6CFB700E43BBE /* Tag */,
+				F23FBD0D26C6CFB700E43BBE /* TagView */,
 				F2FC290B26C679C4008A35DD /* Rating */,
 				F2401A9D26C5CFF90054E3C3 /* Food */,
 				F2FBADB026C66B0C0008C704 /* NewFood */,
@@ -166,8 +162,6 @@
 				F2FBADB526C66BB50008C704 /* Alerts.swift */,
 				F23FBD1226C6E29A00E43BBE /* CustomDialog.swift */,
 				F2FBADB726C66C860008C704 /* ImagePicker.swift */,
-				F2503DDD26C708950039EE5B /* CameraPicker.swift */,
-				F2503DDF26C708D00039EE5B /* Coordinator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -265,9 +259,8 @@
 				F2401AAB26C5D5A50054E3C3 /* Ingredient.swift in Sources */,
 				F2401AA126C5D0410054E3C3 /* FoodListViewModel.swift in Sources */,
 				F2401AA726C5D1F80054E3C3 /* FoodDetailViewModel.swift in Sources */,
-				F23FBD1126C6CFE800E43BBE /* Tag.swift in Sources */,
+				F23FBD1126C6CFE800E43BBE /* TagView.swift in Sources */,
 				F2401A8C26C5CF9F0054E3C3 /* ContentView.swift in Sources */,
-				F2503DDE26C708950039EE5B /* CameraPicker.swift in Sources */,
 				F2FBADB426C66B2C0008C704 /* NewFoodViewModel.swift in Sources */,
 				F2401A8A26C5CF9F0054E3C3 /* CookAppApp.swift in Sources */,
 				F2401AA326C5D0620054E3C3 /* Food.swift in Sources */,
@@ -279,7 +272,6 @@
 				F2FBADB626C66BB50008C704 /* Alerts.swift in Sources */,
 				F2401AA926C5D2450054E3C3 /* FoodListRow.swift in Sources */,
 				F23FBD1326C6E29A00E43BBE /* CustomDialog.swift in Sources */,
-				F2503DE026C708D00039EE5B /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +404,7 @@
 				DEVELOPMENT_TEAM = LZB8X3995T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CookApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -434,7 +426,7 @@
 				DEVELOPMENT_TEAM = LZB8X3995T;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = CookApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

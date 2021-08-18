@@ -64,6 +64,7 @@ struct NewFoodView: View {
                                 viewModel.selectedTag(tag)
                             })
                             .lineLimit(1)
+                            .padding()
                         }
                     }
                 }

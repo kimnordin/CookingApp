@@ -7,30 +7,6 @@
 
 import SwiftUI
 
-struct Tag: View {
-    var ingredient: Ingredient
-    var selected: Bool = false
-    
-    var callback : (Tag) -> ()
-    
-    var body: some View {
-        Text(ingredient.description)
-            .onTapGesture {
-                callback(self)
-            }
-            .padding(.all, 5)
-            .font(.body)
-            .background(Color.blue)
-            .foregroundColor(Color.white)
-            .cornerRadius(5)
-    }
-}
-
-struct Tag_Previews: PreviewProvider {
-    static var previews: some View {
-        Tag(ingredient: Ingredient(description: "Pasta", measure: Measurement(amount: 500, measure: .gram)), callback: {_ in })
-    }
-}
 
 struct TagView: View {
     var tags: [String]
@@ -103,5 +79,24 @@ struct TagView: View {
             }
             return .clear
         }
+    }
+}
+
+struct Tag: View {
+    var ingredient: Ingredient
+    var selected: Bool = false
+    
+    var callback : (Tag) -> ()
+    
+    var body: some View {
+        Text(ingredient.description)
+            .onTapGesture {
+                callback(self)
+            }
+            .padding(8)
+            .font(.body)
+            .background(RoundedRectangle(cornerRadius: 8)
+                    .fill(Color.gray.opacity(0.2)))
+            .foregroundColor(Color.white)
     }
 }
