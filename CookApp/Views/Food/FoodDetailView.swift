@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct FoodDetailView: View {
-    @ObservedObject var viewModel: FoodDetailViewModel
     @Environment(\.colorScheme) var colorScheme
+    @State private var showingImage = false
     @State private var showDialog = true
     var food: Food
     var body: some View {
@@ -41,15 +41,12 @@ struct FoodDetailView: View {
             }
             .fixFlickering()
             .navigationBarTitle(Text(food.name))
-            .onAppear {
-                viewModel.setup(food)
-            }
         }
     }
 }
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(viewModel: FoodDetailViewModel(), food: foodTestData[4])
+        FoodDetailView(food: testFoodData[4])
     }
 }

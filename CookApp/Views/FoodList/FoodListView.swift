@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct FoodListView: View {
-    @ObservedObject var viewModel: FoodListViewModel
     @EnvironmentObject var foods: FoodArray
     @State private var presentNew = false
     var body: some View {
@@ -16,21 +15,21 @@ struct FoodListView: View {
             List {
                 ForEach(foods.list) { food in
                     ZStack(alignment: .leading) {
-                        NavigationLink(destination: FoodDetailView(viewModel: FoodDetailViewModel(), food: food)) {
+                        NavigationLink(destination: FoodDetailView(food: food)) {
                         }
                         .opacity(0)
                         FoodListRow(food: food)
                     }
                 }
                 .onMove(perform: { indices, newOffset in
-                    viewModel.move(indices: indices, newOffset: newOffset)
+                    move(indices: indices, newOffset: newOffset)
                 })
                 .onDelete(perform: { index in
-                    viewModel.delete(at: index)
+                    delete(at: index)
                 })
             }
             .background(NavigationLink(
-                destination: NewFoodView(viewModel: NewFoodViewModel()),
+                destination: NewFoodView(),
                 isActive: $presentNew) {
             })
             .environment(\.defaultMinListRowHeight, 60)
@@ -50,9 +49,21 @@ struct FoodListView: View {
                 }
             )
             .onAppear {
-                viewModel.setup(foods)
-                viewModel.addTestData()
+                addTestData()
             }
+        }
+    }
+    func addTestData() {
+        foods.list = testFoodData
+    }
+    
+    func move(indices: IndexSet, newOffset: Int) {
+        foods.list.move(fromOffsets: indices, toOffset: newOffset)
+    }
+    
+    func delete(at index: IndexSet) {
+        for i in index {
+            foods.list.remove(at: i)
         }
     }
 }
@@ -60,7 +71,7 @@ struct FoodListView: View {
 struct FoodListView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            FoodListView(viewModel: FoodListViewModel())
+            FoodListView()
         }
     }
 }

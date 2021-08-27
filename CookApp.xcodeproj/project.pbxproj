@@ -14,15 +14,12 @@
 		F2401A9126C5CFA00054E3C3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2401A9026C5CFA00054E3C3 /* Preview Assets.xcassets */; };
 		F2401A9B26C5CFE40054E3C3 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A9A26C5CFE40054E3C3 /* FoodListView.swift */; };
 		F2401A9F26C5D0160054E3C3 /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401A9E26C5D0160054E3C3 /* FoodDetailView.swift */; };
-		F2401AA126C5D0410054E3C3 /* FoodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AA026C5D0410054E3C3 /* FoodListViewModel.swift */; };
 		F2401AA326C5D0620054E3C3 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AA226C5D0620054E3C3 /* Food.swift */; };
 		F2401AA526C5D0770054E3C3 /* FoodArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AA426C5D0770054E3C3 /* FoodArray.swift */; };
-		F2401AA726C5D1F80054E3C3 /* FoodDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AA626C5D1F80054E3C3 /* FoodDetailViewModel.swift */; };
 		F2401AA926C5D2450054E3C3 /* FoodListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AA826C5D2450054E3C3 /* FoodListRow.swift */; };
 		F2401AAB26C5D5A50054E3C3 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AAA26C5D5A50054E3C3 /* Ingredient.swift */; };
 		F2401AAE26C5E3900054E3C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2401AAD26C5E3900054E3C3 /* Extensions.swift */; };
 		F2FBADB226C66B1E0008C704 /* NewFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB126C66B1E0008C704 /* NewFoodView.swift */; };
-		F2FBADB426C66B2C0008C704 /* NewFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB326C66B2C0008C704 /* NewFoodViewModel.swift */; };
 		F2FBADB626C66BB50008C704 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB526C66BB50008C704 /* Alerts.swift */; };
 		F2FBADB826C66C860008C704 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBADB726C66C860008C704 /* ImagePicker.swift */; };
 		F2FC290D26C679CE008A35DD /* RatingInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FC290C26C679CE008A35DD /* RatingInputView.swift */; };
@@ -39,15 +36,12 @@
 		F2401A9226C5CFA00054E3C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F2401A9A26C5CFE40054E3C3 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		F2401A9E26C5D0160054E3C3 /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
-		F2401AA026C5D0410054E3C3 /* FoodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewModel.swift; sourceTree = "<group>"; };
 		F2401AA226C5D0620054E3C3 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		F2401AA426C5D0770054E3C3 /* FoodArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodArray.swift; sourceTree = "<group>"; };
-		F2401AA626C5D1F80054E3C3 /* FoodDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewModel.swift; sourceTree = "<group>"; };
 		F2401AA826C5D2450054E3C3 /* FoodListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListRow.swift; sourceTree = "<group>"; };
 		F2401AAA26C5D5A50054E3C3 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		F2401AAD26C5E3900054E3C3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../../../../../Extensions.swift; sourceTree = "<group>"; };
 		F2FBADB126C66B1E0008C704 /* NewFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodView.swift; sourceTree = "<group>"; };
-		F2FBADB326C66B2C0008C704 /* NewFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFoodViewModel.swift; sourceTree = "<group>"; };
 		F2FBADB526C66BB50008C704 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F2FBADB726C66C860008C704 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F2FC290C26C679CE008A35DD /* RatingInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingInputView.swift; sourceTree = "<group>"; };
@@ -137,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				F2401A9A26C5CFE40054E3C3 /* FoodListView.swift */,
-				F2401AA026C5D0410054E3C3 /* FoodListViewModel.swift */,
 				F2401AA826C5D2450054E3C3 /* FoodListRow.swift */,
 			);
 			path = FoodList;
@@ -147,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				F2401A9E26C5D0160054E3C3 /* FoodDetailView.swift */,
-				F2401AA626C5D1F80054E3C3 /* FoodDetailViewModel.swift */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -167,7 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				F2FBADB126C66B1E0008C704 /* NewFoodView.swift */,
-				F2FBADB326C66B2C0008C704 /* NewFoodViewModel.swift */,
 			);
 			path = NewFood;
 			sourceTree = "<group>";
@@ -254,10 +245,7 @@
 				F2FBADB226C66B1E0008C704 /* NewFoodView.swift in Sources */,
 				F2401A9F26C5D0160054E3C3 /* FoodDetailView.swift in Sources */,
 				F2401AAB26C5D5A50054E3C3 /* Ingredient.swift in Sources */,
-				F2401AA126C5D0410054E3C3 /* FoodListViewModel.swift in Sources */,
-				F2401AA726C5D1F80054E3C3 /* FoodDetailViewModel.swift in Sources */,
 				F23FBD1126C6CFE800E43BBE /* TagView.swift in Sources */,
-				F2FBADB426C66B2C0008C704 /* NewFoodViewModel.swift in Sources */,
 				F2401A8A26C5CF9F0054E3C3 /* CookAppApp.swift in Sources */,
 				F2401AA326C5D0620054E3C3 /* Food.swift in Sources */,
 				F2401AA526C5D0770054E3C3 /* FoodArray.swift in Sources */,

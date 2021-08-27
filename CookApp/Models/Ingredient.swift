@@ -40,7 +40,7 @@ enum MeasurementType: String, CaseIterable {
 }
 
 #if DEBUG
-let ingredientTestData = [
+let testIngredientData = [
     Ingredient(id: UUID().hashValue, description: "Cheese", measure: Measurement(amount: 2, measure: .count)),
     Ingredient(id: UUID().hashValue, description: "Tomato", measure: Measurement(amount: 5, measure: .count)),
     Ingredient(id: UUID().hashValue, description: "Basil", measure: Measurement(amount: 200, measure: .gram)),
@@ -51,6 +51,8 @@ let ingredientTestData = [
     Ingredient(id: UUID().hashValue, description: "Meat", measure: Measurement(amount: 400, measure: .gram)),
     Ingredient(id: UUID().hashValue, description: "Cucumber", measure: Measurement(amount: 1, measure: .count)),
     Ingredient(id: UUID().hashValue, description: "Onion", measure: Measurement(amount: 2, measure: .count)),
-    Ingredient(id: UUID().hashValue, description: "Rice", measure: Measurement(amount: 1, measure: .kilo))
+    Ingredient(id: UUID().hashValue, description: "Rice", measure: Measurement(amount: 1, measure: .kilo)),
+    Ingredient(id: UUID().hashValue, description: "Flour", measure: Measurement(amount: 1, measure: .kilo)),
+    Ingredient(id: UUID().hashValue, description: "Mozarella", measure: Measurement(amount: 300, measure: .gram))
 ]
 #endif

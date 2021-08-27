@@ -11,14 +11,24 @@ struct NewFoodView: View {
     @Environment(\.presentationMode) var presentation
     @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var foods: FoodArray
-    @ObservedObject var viewModel = NewFoodViewModel()
+    @State var name: String = ""
+    @State var uiImage: UIImage? = nil
+    @State var alertItem: AlertItem?
+    @State var showImagePicker = false
+    @State var foodCreated = false
+    @State var changeAlert = false
     @State var showAlert = false
+    @State var showAction = false
+    @State var rating: Int = 0
+    @State var selectedIngredient: Ingredient?
+    @State var ingredientDescription: String?
+    @State var ingredients = [Ingredient]()
     var body: some View {
         GeometryReader { geo in
             VStack {
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        if (viewModel.uiImage == nil) {
+                        if (uiImage == nil) {
                             Text("Snap a picture of your food")
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                             Image(systemName: "camera.circle.fill")
@@ -26,11 +36,11 @@ struct NewFoodView: View {
                                 .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                                 .frame(width: 100, height: 100)
                                 .onTapGesture {
-                                    viewModel.displayImagePicker()
+                                    displayImagePicker()
                                 }
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 30, trailing: 0))
                         } else {
-                            Image(uiImage: viewModel.uiImage!)
+                            Image(uiImage: uiImage!)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .cornerRadius(10)
@@ -40,15 +50,15 @@ struct NewFoodView: View {
                                 .padding()
                                 .frame(width: geo.size.width)
                                 .onTapGesture {
-                                    viewModel.displayActionSheet()
+                                    displayActionSheet()
                                 }
                         }
                     }
                     VStack {
-                        TextField("Give your Dish a name", text: $viewModel.name)
+                        TextField("Give your Dish a name", text: $name)
                             .multilineTextAlignment(.center)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
-                        RatingInputView(rating: $viewModel.rating)
+                        RatingInputView(rating: $rating)
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
                         HStack {
                             Text("Ingredients")
@@ -59,9 +69,9 @@ struct NewFoodView: View {
                             .accentColor(colorScheme == .dark ? Color.white : Color.black)
                         }
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0))
-                        if !viewModel.ingredients.isEmpty {
-                            TagView(tags: viewModel.stringIngredients(), callback: { tag in
-                                viewModel.selectedTag(tag)
+                        if !ingredients.isEmpty {
+                            TagView(tags: stringIngredients(), callback: { tag in
+                                selectedTag(tag)
                             })
                             .lineLimit(1)
                             .padding()
@@ -69,36 +79,33 @@ struct NewFoodView: View {
                     }
                 }
                 .fixFlickering()
-                .onAppear {
-                    viewModel.setup(foods)
-                }
                 .alert(isPresented: $showAlert, AlertConfig(title: "Ingredient", placeholder: "Add an Ingredient", action: {
                     if let string = $0 {
-                        viewModel.addIngredient(string)
+                        addIngredient(string)
                     }
                 }))
-                .alert(isPresented: $viewModel.changeAlert, AlertConfig(title: "Change Ingredient", placeholder: viewModel.selectedIngredient?.description ?? "", action: {
+                .alert(isPresented: $changeAlert, AlertConfig(title: "Change Ingredient", placeholder: selectedIngredient?.description ?? "", action: {
                     if let string = $0 {
-                        viewModel.changeIngredient(string)
+                        changeIngredient(string)
                     }
                 }))
-                .alert(item: $viewModel.alertItem, content: { alertItem in
+                .alert(item: $alertItem, content: { alertItem in
                     Alert(title: alertItem.title,
                           message: alertItem.message,
                           dismissButton: .default(alertItem.buttonTitle))
                 })
-                .sheet(isPresented: $viewModel.showImagePicker, onDismiss: {
-                    viewModel.dismissImagePicker()
+                .sheet(isPresented: $showImagePicker, onDismiss: {
+                    dismissImagePicker()
                 }, content: {
-                    ImagePicker(isShown: $viewModel.showImagePicker, uiImage: $viewModel.uiImage)
+                    ImagePicker(isShown: $showImagePicker, uiImage: $uiImage)
                 })
-                .actionSheet(isPresented: $viewModel.showAction) {
-                    viewModel.sheet
+                .actionSheet(isPresented: $showAction) {
+                    sheet
                 }
                 Group {
                     Button(action: {
-                        viewModel.createFood(name: viewModel.name, image: viewModel.uiImage, ingredients: viewModel.ingredients, rating: viewModel.rating)
-                        if viewModel.foodCreated {
+                        createFood(name: name, image: uiImage, ingredients: ingredients, rating: rating)
+                        if foodCreated {
                             self.presentation.wrappedValue.dismiss()
                         }
                     }, label: {
@@ -115,11 +122,125 @@ struct NewFoodView: View {
             }
         }
     }
+    var sheet: ActionSheet {
+        ActionSheet(
+            title: Text("Action"),
+            message: Text("Update Image"),
+            buttons: [
+                .default(Text("Change"), action: {
+                    self.dismissActionSheet()
+                    self.displayImagePicker()
+                }),
+                .cancel(Text("Close"), action: {
+                    self.dismissActionSheet()
+                }),
+                .destructive(Text("Remove"), action: {
+                    self.dismissActionSheet()
+                    self.uiImage = nil
+                })
+            ])
+    }
+    func displayActionSheet() {
+        showAction = true
+    }
+    
+    func dismissActionSheet() {
+        showAction = false
+    }
+    
+    func displayImagePicker() {
+        showImagePicker = true
+    }
+    
+    func dismissImagePicker() {
+        showImagePicker = false
+    }
+    
+    func selectedTag(_ tag: Tag) {
+        selectedIngredient = tag.ingredient
+        changeAlert = true
+    }
+    
+    func stringIngredients() -> [String] {
+        var strIngredients = [String]()
+        for ingredient in ingredients {
+            if ingredient.description != "" {
+                strIngredients.append(ingredient.description)
+            }
+        }
+        return strIngredients
+    }
+    
+    func addIngredient(_ name: String, measure: Measurement? = nil) {
+        if canCreate(ingredient: Ingredient(description: name, measure: measure)) {
+            ingredients.append(Ingredient(description: name, measure: measure))
+        }
+    }
+    
+    func removeIngredient(ingredient: Ingredient) {
+        if let index = ingredients.firstIndex(of: ingredient) {
+            ingredients.remove(at: index)
+        }
+    }
+    
+    func changeIngredient(_ text: String) {
+        if let tag = selectedIngredient {
+            if text != "" {
+                removeIngredient(ingredient: tag)
+                addIngredient(text, measure: tag.measure)
+            }
+            else {
+                removeIngredient(ingredient: tag)
+            }
+        }
+    }
+    
+    func setRating(_ score: Int) {
+        rating = score
+    }
+    
+    private func isFoodValid(name: String) -> Bool {
+        if name != "" {
+            print("Valid")
+            return true
+        }
+        else if name == ""  {
+            alertItem = AlertContext.NewFood.noName
+        }
+        return false
+    }
+    
+
+    func createFood(name: String, image: UIImage? = nil, ingredients: [Ingredient], rating: Int? = nil) {
+        if isFoodValid(name: name) {
+            foods.addFood(food: Food(name: name, image: image, ingredients: ingredients, rating: rating))
+            foodCreated = true
+        }
+        else {
+            foodCreated = false
+        }
+    }
+    
+    // Check for duplicates before adding Ingredient
+    func canCreate(ingredient: Ingredient) -> Bool {
+        var descriptionList = [String]()
+        if ingredient.description.isEmpty {
+            return false
+        }
+        for ingredient in ingredients {
+            descriptionList.append(ingredient.description)
+        }
+        
+        if ingredients.contains(where: { $0.description.localizedCaseInsensitiveContains(ingredient.description) }) {
+            return false
+        }
+        return true
+    }
 }
 
 struct NewFoodView_Previews: PreviewProvider {
     static var previews: some View {
-        NewFoodView(viewModel: NewFoodViewModel())
-        .environmentObject(FoodArray())
+        NewFoodView()
+            .environmentObject(FoodArray())
     }
 }

@@ -54,10 +54,10 @@ class Food: Identifiable, ObservableObject {
 }
 
 #if DEBUG
-let foodTestData = [
-    Food(name: "Pizza", image: UIImage(named: "pizza"), ingredients: [ingredientTestData[0], ingredientTestData[1], ingredientTestData[2]], rating: 4),
-    Food(name: "Pasta", image: UIImage(named: "pasta"), ingredients: [ingredientTestData[4], ingredientTestData[5], ingredientTestData[6], ingredientTestData[7]], rating: 2),
-    Food(name: "Tacos", image: UIImage(named: "tacos"), ingredients: [ingredientTestData[8], ingredientTestData[9], ingredientTestData[0], ingredientTestData[10]], rating: 3),
-    Food(name: "Baked Beans", ingredients: [ingredientTestData[4]], rating: 5)
+let testFoodData = [
+    Food(name: "Pizza", image: UIImage(named: "pizza"), ingredients: [testIngredientData[11], testIngredientData[12], testIngredientData[5]], rating: 4),
+    Food(name: "Pasta", image: UIImage(named: "pasta"), ingredients: [testIngredientData[4], testIngredientData[5], testIngredientData[6], testIngredientData[7]], rating: 2),
+    Food(name: "Tacos", image: UIImage(named: "tacos"), ingredients: [testIngredientData[8], testIngredientData[9], testIngredientData[0], testIngredientData[10]], rating: 3),
+    Food(name: "Baked Beans", ingredients: [testIngredientData[4]], rating: 5)
 ]
 #endif

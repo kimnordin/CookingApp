@@ -12,7 +12,7 @@ struct CookAppApp: App {
     @StateObject private var foodData = FoodArray()
     var body: some Scene {
         WindowGroup {
-            FoodListView(viewModel: FoodListViewModel())
+            FoodListView()
                 .environmentObject(foodData)
         }
     }
